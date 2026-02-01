@@ -7,7 +7,8 @@
     --text-secondary: #64748b;
     --primary-blue: #0f172a;
     --accent-blue: #2563eb;
-    --upi-color: #16a34a; /* Green for payment */
+    --upi-color: #16a34a;
+    /* Green for payment */
     --border-color: #e2e8f0;
 }
 
@@ -129,9 +130,19 @@ h2 {
     opacity: 0.9;
 }
 
-.btn-primary:disabled {
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Disabled state for both button and anchor tag */
+.btn-primary:disabled,
+.btn-primary.disabled {
     background-color: #94a3b8;
     cursor: not-allowed;
+    pointer-events: none;
+    /* Prevents clicks on anchor tags */
+    opacity: 0.7;
+    box-shadow: none;
 }
 
 /* Checkbox */
@@ -187,14 +198,22 @@ footer a {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Iframe */
 #google-form-frame {
     width: 100%;
-    min-height: 800px; /* Taller for form */
+    min-height: 800px;
+    /* Taller for form */
     border: none;
     margin-top: 1rem;
 }
