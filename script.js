@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const proceedBtn = document.getElementById('btn-proceed');
-    const paymentCheckbox = document.getElementById('payment-check');
+    const paymentCheck = document.getElementById('payment-check');
+    const registerBtn = document.getElementById('btn-register');
 
-    // Function to toggle disabled state
-    function toggleProceedButton() {
-        if (paymentCheckbox.checked) {
-            proceedBtn.classList.remove('disabled');
+    function toggleHighlight() {
+        if (paymentCheck.checked) {
+            registerBtn.classList.add('active');
+            // Optional: Change text or add glow
         } else {
-            proceedBtn.classList.add('disabled');
+            registerBtn.classList.remove('active');
         }
     }
 
-    // Initial check (in case browser caches checkbox state)
-    toggleProceedButton();
+    // Initialize
+    toggleHighlight();
 
-    // Listen for changes
-    paymentCheckbox.addEventListener('change', toggleProceedButton);
+    // Listen
+    paymentCheck.addEventListener('change', toggleHighlight);
 });
