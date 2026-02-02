@@ -1,19 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const paymentCheck = document.getElementById('payment-check');
-    const registerBtn = document.getElementById('btn-register');
+    const modal = document.getElementById('whatsapp-modal');
+    const closeModal = document.querySelector('.close-modal');
 
-    function toggleHighlight() {
+    // Show modal when checkbox is checked
+    paymentCheck.addEventListener('change', () => {
         if (paymentCheck.checked) {
-            registerBtn.classList.add('active');
-            // Optional: Change text or add glow
-        } else {
-            registerBtn.classList.remove('active');
+            modal.style.display = 'block';
         }
-    }
+    });
 
-    // Initialize
-    toggleHighlight();
+    // Close modal when X is clicked
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
 
-    // Listen
-    paymentCheck.addEventListener('change', toggleHighlight);
+    // Close modal when clicking outside
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
 });
